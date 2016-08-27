@@ -41,15 +41,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 return
             }
             
-            if let email = result["email"] as? String {
-                print(email)
-            }
-            
-            
-            if let name = result["first_name"] as? String {
-                print(name)
-            }
-            
+          let user = User()
+            user.initialize(result)
+            print(user.firstName)
         }
     }
     
