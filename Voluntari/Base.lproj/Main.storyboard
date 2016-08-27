@@ -41,7 +41,7 @@
         <!--Categorías-->
         <scene sceneID="GTs-VJ-Vxp">
             <objects>
-                <viewController id="7Kr-qI-hl8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="categories" id="7Kr-qI-hl8" customClass="CategoriesViewController" customModule="Voluntari" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="srI-Mi-nLh"/>
                         <viewControllerLayoutGuide type="bottom" id="XWZ-iB-4rn"/>
@@ -60,7 +60,7 @@
         <!--Info-->
         <scene sceneID="yVM-1M-9C8">
             <objects>
-                <viewController id="RDX-lp-0sm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="info" id="RDX-lp-0sm" customClass="InfoViewController" customModule="Voluntari" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3iY-MU-vc6"/>
                         <viewControllerLayoutGuide type="bottom" id="HqY-r0-cBR"/>
@@ -79,7 +79,7 @@
         <!--Home-->
         <scene sceneID="nRd-sH-was">
             <objects>
-                <viewController id="YLz-sn-Jbc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" id="YLz-sn-Jbc" customClass="HomeViewController" customModule="Voluntari" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sY3-kc-Ae7"/>
                         <viewControllerLayoutGuide type="bottom" id="2nV-PJ-imE"/>

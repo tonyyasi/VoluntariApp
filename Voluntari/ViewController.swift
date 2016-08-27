@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
-    
+    let user = User()
     let FBButton: FBSDKLoginButton = {
        let button = FBSDKLoginButton()
         button.readPermissions = ["public_profile" , "user_likes", "email"]
@@ -41,9 +41,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 return
             }
             
-          let user = User()
-            user.initialize(result)
-            print(user.firstName)
+          
+            self.user.initialize(result)
+            self.sendUserToViews()
         }
     }
     
@@ -64,6 +64,16 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     func nextView(){
         let vc = storyboard?.instantiateViewControllerWithIdentifier("nav")
         presentViewController(vc!, animated: true, completion: nil)
+    }
+    
+    func sendUserToViews(){
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("info") as! InfoViewController
+        let vc2 = storyboard?.instantiateViewControllerWithIdentifier("home") as! HomeViewController
+        let vc3 = storyboard?.instantiateViewControllerWithIdentifier("categories") as! CategoriesViewController
+        
+        vc.user = self.user
+        vc2.user = self.user
+        vc3.user = self.user
     }
 
     override func didReceiveMemoryWarning() {
