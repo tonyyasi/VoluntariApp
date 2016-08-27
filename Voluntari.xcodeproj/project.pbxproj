@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		AF6552A81D7229CF00106217 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6552A71D7229CF00106217 /* Bolts.framework */; };
 		AF6552AA1D7234B100106217 /* FacebookUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6552A91D7234B100106217 /* FacebookUser.swift */; };
+		AF6552AC1D723A9A00106217 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6552AB1D723A9A00106217 /* HomeViewController.swift */; };
+		AF6552AE1D723AA600106217 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6552AD1D723AA600106217 /* CategoriesViewController.swift */; };
+		AF6552B01D723AB000106217 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6552AF1D723AB000106217 /* InfoViewController.swift */; };
 		AFED62A31D720A7D0047FFE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */; };
 		AFED62A51D720A7D0047FFE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A41D720A7D0047FFE5 /* ViewController.swift */; };
 		AFED62A81D720A7D0047FFE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFED62A61D720A7D0047FFE5 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		AF6552A71D7229CF00106217 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		AF6552A91D7234B100106217 /* FacebookUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookUser.swift; sourceTree = "<group>"; };
+		AF6552AB1D723A9A00106217 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AF6552AD1D723AA600106217 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		AF6552AF1D723AB000106217 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		AFED629F1D720A7D0047FFE5 /* Voluntari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voluntari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFED62A41D720A7D0047FFE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +87,9 @@
 				AFED62AE1D720A7D0047FFE5 /* Info.plist */,
 				AFED62BE1D7225D70047FFE5 /* Voluntari-Bridging-Header.h */,
 				AF6552A91D7234B100106217 /* FacebookUser.swift */,
+				AF6552AB1D723A9A00106217 /* HomeViewController.swift */,
+				AF6552AD1D723AA600106217 /* CategoriesViewController.swift */,
+				AF6552AF1D723AB000106217 /* InfoViewController.swift */,
 			);
 			path = Voluntari;
 			sourceTree = "<group>";
@@ -160,6 +169,9 @@
 				AF6552AA1D7234B100106217 /* FacebookUser.swift in Sources */,
 				AFED62A51D720A7D0047FFE5 /* ViewController.swift in Sources */,
 				AFED62A31D720A7D0047FFE5 /* AppDelegate.swift in Sources */,
+				AF6552AC1D723A9A00106217 /* HomeViewController.swift in Sources */,
+				AF6552B01D723AB000106217 /* InfoViewController.swift in Sources */,
+				AF6552AE1D723AA600106217 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
