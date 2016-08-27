@@ -14,6 +14,7 @@
 		AF6552B01D723AB000106217 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6552AF1D723AB000106217 /* InfoViewController.swift */; };
 		AF6552B21D72445F00106217 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6552B11D72445F00106217 /* UIColorExtension.swift */; };
 		AF6552B41D7244F000106217 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6552B31D7244F000106217 /* ColorPalette.swift */; };
+		AF6552B61D72473600106217 /* InterestingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6552B51D72473600106217 /* InterestingCell.swift */; };
 		AFED62A31D720A7D0047FFE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */; };
 		AFED62A51D720A7D0047FFE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A41D720A7D0047FFE5 /* ViewController.swift */; };
 		AFED62A81D720A7D0047FFE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFED62A61D720A7D0047FFE5 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		AF6552AF1D723AB000106217 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		AF6552B11D72445F00106217 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		AF6552B31D7244F000106217 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		AF6552B51D72473600106217 /* InterestingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestingCell.swift; sourceTree = "<group>"; };
 		AFED629F1D720A7D0047FFE5 /* Voluntari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voluntari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFED62A41D720A7D0047FFE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				AF6552AF1D723AB000106217 /* InfoViewController.swift */,
 				AF6552B11D72445F00106217 /* UIColorExtension.swift */,
 				AF6552B31D7244F000106217 /* ColorPalette.swift */,
+				AF6552B51D72473600106217 /* InterestingCell.swift */,
 			);
 			path = Voluntari;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF6552B61D72473600106217 /* InterestingCell.swift in Sources */,
 				AF6552AA1D7234B100106217 /* FacebookUser.swift in Sources */,
 				AF6552B21D72445F00106217 /* UIColorExtension.swift in Sources */,
 				AFED62A51D720A7D0047FFE5 /* ViewController.swift in Sources */,
