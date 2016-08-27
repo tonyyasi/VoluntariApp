@@ -12,6 +12,9 @@
 		AFED62A81D720A7D0047FFE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFED62A61D720A7D0047FFE5 /* Main.storyboard */; };
 		AFED62AA1D720A7D0047FFE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFED62A91D720A7D0047FFE5 /* Assets.xcassets */; };
 		AFED62AD1D720A7D0047FFE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFED62AB1D720A7D0047FFE5 /* LaunchScreen.storyboard */; };
+		AFED62B51D7218A30047FFE5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFED62B41D7218A30047FFE5 /* FBSDKCoreKit.framework */; };
+		AFED62B71D7218BA0047FFE5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFED62B61D7218BA0047FFE5 /* FBSDKLoginKit.framework */; };
+		AFED62B91D7218CA0047FFE5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFED62B81D7218CA0047FFE5 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		AFED62A91D720A7D0047FFE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFED62AC1D720A7D0047FFE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFED62AE1D720A7D0047FFE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFED62B41D7218A30047FFE5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		AFED62B61D7218BA0047FFE5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		AFED62B81D7218CA0047FFE5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFED62B71D7218BA0047FFE5 /* FBSDKLoginKit.framework in Frameworks */,
+				AFED62B51D7218A30047FFE5 /* FBSDKCoreKit.framework in Frameworks */,
+				AFED62B91D7218CA0047FFE5 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +68,9 @@
 				AFED62A61D720A7D0047FFE5 /* Main.storyboard */,
 				AFED62A91D720A7D0047FFE5 /* Assets.xcassets */,
 				AFED62AB1D720A7D0047FFE5 /* LaunchScreen.storyboard */,
+				AFED62B81D7218CA0047FFE5 /* FBSDKShareKit.framework */,
+				AFED62B61D7218BA0047FFE5 /* FBSDKLoginKit.framework */,
+				AFED62B41D7218A30047FFE5 /* FBSDKCoreKit.framework */,
 				AFED62AE1D720A7D0047FFE5 /* Info.plist */,
 			);
 			path = Voluntari;
@@ -252,6 +264,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Voluntari",
+				);
 				INFOPLIST_FILE = Voluntari/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tony.Voluntari;
@@ -263,6 +279,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Voluntari",
+				);
 				INFOPLIST_FILE = Voluntari/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tony.Voluntari;
