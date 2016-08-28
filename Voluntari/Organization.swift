@@ -10,10 +10,19 @@ import Foundation
 
 class Organization {
     
+    var projects: [Project] = []
+    var name: String!
+    var description: String!
+    var location: String!
+    
 }
 
 /*
- 
+ projects[ ]
+ name
+ description
+ location
+
  
  
  */
