@@ -10,7 +10,7 @@ import UIKit
 
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
-    let categorias = ["Reforestación", "Campamentos", "Programación" , "Educación", "Medicina", "Alimentación"]
+    let categorias = ["reforestacion", "Campamentos", "Programación" , "Educación", "Medicina", "Alimentación"]
     var selectedCategory: String?
     
     var array: [Project] = []

@@ -12,6 +12,7 @@ class SelectedCategoryViewController: UIViewController, UITableViewDelegate, UIT
     
     var selectedCategory: String?
     var chosen:[Project] = []
+    var chosenOne = Project()
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -33,7 +34,8 @@ class SelectedCategoryViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        let vc = segue.destinationViewController as! ProyectViewController
+            vc.chosenProyect = self.chosenOne
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +49,7 @@ class SelectedCategoryViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.chosenOne = chosen[indexPath.row]
         performSegueWithIdentifier("catToProy", sender: nil)
     }
     

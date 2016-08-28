@@ -18,6 +18,7 @@ class Project {
     var freeSpaces: Int!
     var moneyDonated: Int!
     var place: String!
+    var id: Int!
     
     func initialize(dictionary: NSDictionary){
         name = dictionary["name"] as! String
@@ -28,6 +29,7 @@ class Project {
         freeSpaces = dictionary["free_spaces"] as! Int
         moneyDonated = dictionary["money_donated"] as! Int
         place = dictionary["place"] as! String
+        id = dictionary["id"] as! Int
     }
     
     

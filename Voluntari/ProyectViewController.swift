@@ -30,11 +30,17 @@ class ProyectViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var placeLabel: UILabel!
-    let chosenProyect = Project()
+    var chosenProyect: Project?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = ColorPalette.background
+        remainingLabel.text = " Solo quedan \(chosenProyect!.freeSpaces) lugares"
+        descriptionLabel.text = chosenProyect!.description
+        projectTitleLabel.text = chosenProyect!.name
+        timeLabel.text = chosenProyect?.date
+        placeLabel.text = chosenProyect?.place
+        
 
         // Do any additional setup after loading the view.
     }

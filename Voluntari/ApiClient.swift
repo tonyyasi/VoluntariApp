@@ -13,6 +13,7 @@ enum Endpoints {
     case ProjectsOfOrganization(Int)
     case Projects()
     case EspecificProject(Int)
+    case OrganizationOfAProject(Int)
     
     func URL()->String{
         let path:String!
@@ -26,12 +27,15 @@ enum Endpoints {
             path = "projects"
         case .EspecificProject(let id):
             path = "projects/\(id)"
+        case .OrganizationOfAProject(let id):
+            path = "projects/\(id)"
         }
         return ApiClient.baseURL + path
     }
 }
 
 typealias ProjectsCompletionHandler = [Project] -> Void
+typealias OrganizationCompletionHandler = Organization -> Void
 
 class ApiClient{
     
@@ -73,6 +77,15 @@ class ApiClient{
         task.resume()
     }
     
-    
+    func fetchOrganization(let id: Int, completionHandler: OrganizationCompletionHandler){
+        
+        let path = Endpoints.OrganizationOfAProject(id).URL()
+        let url = NSURL(string: path)
+        
+        let org = Organization()
+        
+        org.in
+        
+    }
     
 }
