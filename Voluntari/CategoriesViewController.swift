@@ -15,7 +15,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     
     
     @IBOutlet weak var collectionView: UICollectionView!
-    let imageArray = [UIImage(named: "arboles"), UIImage(named: "3"), UIImage(named: "programa"), UIImage(named:"school")]
+    let imageArray = [UIImage(named: "arboles"), UIImage(named: "3"), UIImage(named: "programa"), UIImage(named:"school"), UIImage(named: "medi") , UIImage(named: "comida")]
     
     var user = User()
 
@@ -32,7 +32,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
 
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4 //categorias.count
+        return categorias.count
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -45,8 +45,6 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         if let cat = categorias[indexPath.row] as? String{
             self.selectedCategory = cat
         }
-        
-        print(self.selectedCategory)
         
         performSegueWithIdentifier("category", sender: nil)
         

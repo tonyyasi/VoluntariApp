@@ -123,7 +123,29 @@
                     <view key="view" contentMode="scaleToFill" id="mOG-6J-heH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TAD-jx-gaV">
+                                <rect key="frame" x="20" y="164" width="560" height="387"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="proy" id="4CQ-I4-tcQ">
+                                        <rect key="frame" x="0.0" y="92" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4CQ-I4-tcQ" id="IHe-X1-Ruu">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TAD-jx-gaV" firstAttribute="leading" secondItem="mOG-6J-heH" secondAttribute="leadingMargin" id="Y6R-ji-Zjb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TAD-jx-gaV" secondAttribute="trailing" id="dQB-RK-PLb"/>
+                            <constraint firstItem="TAD-jx-gaV" firstAttribute="top" secondItem="ui3-PH-Jqu" secondAttribute="bottom" constant="100" id="n0h-jz-gvq"/>
+                            <constraint firstItem="q14-2t-fes" firstAttribute="top" secondItem="TAD-jx-gaV" secondAttribute="bottom" id="vqD-zj-J65"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3W-uz-jL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
