@@ -19,6 +19,7 @@
 		AF75ED4C1D7291DC0047BEA7 /* ProyectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED4B1D7291DC0047BEA7 /* ProyectViewController.swift */; };
 		AF75ED4E1D72A6D00047BEA7 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED4D1D72A6D00047BEA7 /* Project.swift */; };
 		AF75ED501D72A7DE0047BEA7 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED4F1D72A7DE0047BEA7 /* Organization.swift */; };
+		AF75ED561D72B2380047BEA7 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED551D72B2380047BEA7 /* ApiClient.swift */; };
 		AFED62A31D720A7D0047FFE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */; };
 		AFED62A51D720A7D0047FFE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A41D720A7D0047FFE5 /* ViewController.swift */; };
 		AFED62A81D720A7D0047FFE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFED62A61D720A7D0047FFE5 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		AF75ED4B1D7291DC0047BEA7 /* ProyectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProyectViewController.swift; sourceTree = "<group>"; };
 		AF75ED4D1D72A6D00047BEA7 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		AF75ED4F1D72A7DE0047BEA7 /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		AF75ED551D72B2380047BEA7 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		AFED629F1D720A7D0047FFE5 /* Voluntari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voluntari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFED62A41D720A7D0047FFE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF75ED511D72B1BB0047BEA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF6552A91D7234B100106217 /* FacebookUser.swift */,
+				AF75ED4D1D72A6D00047BEA7 /* Project.swift */,
+				AF75ED4F1D72A7DE0047BEA7 /* Organization.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AF75ED521D72B1D20047BEA7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFED62A41D720A7D0047FFE5 /* ViewController.swift */,
+				AF6552AB1D723A9A00106217 /* HomeViewController.swift */,
+				AF75ED4B1D7291DC0047BEA7 /* ProyectViewController.swift */,
+				AF6552AD1D723AA600106217 /* CategoriesViewController.swift */,
+				AF6552AF1D723AB000106217 /* InfoViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AF75ED531D72B1F20047BEA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AFED62A61D720A7D0047FFE5 /* Main.storyboard */,
+				AFED62AB1D720A7D0047FFE5 /* LaunchScreen.storyboard */,
+				AF6552B51D72473600106217 /* InterestingCell.swift */,
+				AF75ED491D7264F60047BEA7 /* collectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AF75ED541D72B20E0047BEA7 /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+				AF6552A71D7229CF00106217 /* Bolts.framework */,
+				AFED62B81D7218CA0047FFE5 /* FBSDKShareKit.framework */,
+				AFED62B61D7218BA0047FFE5 /* FBSDKLoginKit.framework */,
+				AFED62B41D7218A30047FFE5 /* FBSDKCoreKit.framework */,
+			);
+			name = FacebookSDK;
+			sourceTree = "<group>";
+		};
 		AFED62961D720A7D0047FFE5 = {
 			isa = PBXGroup;
 			children = (
@@ -89,28 +135,17 @@
 		AFED62A11D720A7D0047FFE5 /* Voluntari */ = {
 			isa = PBXGroup;
 			children = (
-				AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */,
-				AFED62A41D720A7D0047FFE5 /* ViewController.swift */,
-				AFED62A61D720A7D0047FFE5 /* Main.storyboard */,
+				AF75ED531D72B1F20047BEA7 /* Views */,
+				AF75ED511D72B1BB0047BEA7 /* Models */,
+				AF75ED521D72B1D20047BEA7 /* Controllers */,
+				AF75ED541D72B20E0047BEA7 /* FacebookSDK */,
 				AFED62A91D720A7D0047FFE5 /* Assets.xcassets */,
-				AFED62AB1D720A7D0047FFE5 /* LaunchScreen.storyboard */,
-				AF6552A71D7229CF00106217 /* Bolts.framework */,
-				AFED62B81D7218CA0047FFE5 /* FBSDKShareKit.framework */,
-				AFED62B61D7218BA0047FFE5 /* FBSDKLoginKit.framework */,
-				AFED62B41D7218A30047FFE5 /* FBSDKCoreKit.framework */,
 				AFED62AE1D720A7D0047FFE5 /* Info.plist */,
+				AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */,
 				AFED62BE1D7225D70047FFE5 /* Voluntari-Bridging-Header.h */,
-				AF6552A91D7234B100106217 /* FacebookUser.swift */,
-				AF6552AB1D723A9A00106217 /* HomeViewController.swift */,
-				AF75ED4B1D7291DC0047BEA7 /* ProyectViewController.swift */,
-				AF6552AD1D723AA600106217 /* CategoriesViewController.swift */,
-				AF6552AF1D723AB000106217 /* InfoViewController.swift */,
 				AF6552B11D72445F00106217 /* UIColorExtension.swift */,
 				AF6552B31D7244F000106217 /* ColorPalette.swift */,
-				AF6552B51D72473600106217 /* InterestingCell.swift */,
-				AF75ED491D7264F60047BEA7 /* collectionViewCell.swift */,
-				AF75ED4D1D72A6D00047BEA7 /* Project.swift */,
-				AF75ED4F1D72A7DE0047BEA7 /* Organization.swift */,
+				AF75ED551D72B2380047BEA7 /* ApiClient.swift */,
 			);
 			path = Voluntari;
 			sourceTree = "<group>";
@@ -194,6 +229,7 @@
 				AF6552B21D72445F00106217 /* UIColorExtension.swift in Sources */,
 				AFED62A51D720A7D0047FFE5 /* ViewController.swift in Sources */,
 				AF6552B41D7244F000106217 /* ColorPalette.swift in Sources */,
+				AF75ED561D72B2380047BEA7 /* ApiClient.swift in Sources */,
 				AFED62A31D720A7D0047FFE5 /* AppDelegate.swift in Sources */,
 				AF6552AC1D723A9A00106217 /* HomeViewController.swift in Sources */,
 				AF6552B01D723AB000106217 /* InfoViewController.swift in Sources */,
