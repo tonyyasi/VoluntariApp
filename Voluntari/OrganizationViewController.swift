@@ -10,12 +10,18 @@ import UIKit
 
 class OrganizationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
+    
+        @IBOutlet weak var tableView: UITableView!
     var chosenProj = Project()
     var org = Organization()
     var index = 0
     
     @IBOutlet weak var orgName: UILabel!
+    
+   
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    
 
     override func viewDidLoad() {
         
@@ -28,6 +34,7 @@ class OrganizationViewController: UIViewController, UITableViewDelegate, UITable
         bg.backgroundColor = ColorPalette.background
         tableView.backgroundView = bg
         orgName.text = org.name
+        descriptionLabel.text = "Description: \(org.description)"
 
         // Do any additional setup after loading the view.
     }
