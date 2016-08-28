@@ -9,13 +9,20 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var projects: [Project] = []
     
     @IBOutlet weak var homeTableView: UITableView!
     var user = User()
+    var index = 0
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ApiClient.sharedApiClient.fetchProjects { (proj) in
+            self.projects = proj
+            self.homeTableView.reloadData()
+        }
       
         let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.logOut))
 
@@ -69,11 +76,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return projects.count
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        let vc = segue.destinationViewController as! ProyectViewController
+        vc.chosenProyect = self.projects[index]
        
     }
     
@@ -81,14 +89,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.index = indexPath.row
          performSegueWithIdentifier("choseProyect", sender: nil)
         
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("proyectos") as! InterestingCell
-        cell.topLabel.text = "top"
-        cell.bottomLabel.text = "bottom"
+        cell.topLabel.text = projects[indexPath.row].name
+        cell.bottomLabel.text = projects[indexPath.row].place
         cell.contentView.backgroundColor = ColorPalette.background
         
         return cell

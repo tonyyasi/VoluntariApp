@@ -518,6 +518,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="orgName" destination="axM-Sz-9wD" id="fen-TJ-Wwm"/>
                         <outlet property="tableView" destination="Iwc-1t-HWV" id="6l1-F3-LAn"/>
                         <segue destination="jes-2n-WfW" kind="show" identifier="se" id="hEz-N9-lr9"/>
                     </connections>
@@ -612,6 +613,6 @@
         <image name="i" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qgr-iq-x94"/>
+        <segue reference="hEz-N9-lr9"/>
     </inferredMetricsTieBreakers>
 </document>

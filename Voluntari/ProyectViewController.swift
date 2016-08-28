@@ -31,9 +31,28 @@ class ProyectViewController: UIViewController {
     
     @IBOutlet weak var placeLabel: UILabel!
     var chosenProyect: Project?
+    var organization: Organization?
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! OrganizationViewController
+        vc.chosenProj = self.chosenProyect!
+        vc.org = self.organization!
+    }
+    
+    
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        ApiClient.sharedApiClient.fetchOrganization((self.chosenProyect?.id)!) { (org) in
+            self.organization = org
+            
+            ApiClient.sharedApiClient.fetchProjectsOfOrg(org.id) { (projects) in
+                self.organization?.projects = projects
+            }
+
+        }
+        
+               super.viewDidLoad()
         view.backgroundColor = ColorPalette.background
         remainingLabel.text = " Solo quedan \(chosenProyect!.freeSpaces) lugares"
         descriptionLabel.text = chosenProyect!.description

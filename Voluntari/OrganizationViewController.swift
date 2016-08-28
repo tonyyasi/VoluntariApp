@@ -11,8 +11,14 @@ import UIKit
 class OrganizationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    var chosenProj = Project()
+    var org = Organization()
+    var index = 0
+    
+    @IBOutlet weak var orgName: UILabel!
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.backgroundColor = ColorPalette.background
         tableView.delegate = self
@@ -21,6 +27,7 @@ class OrganizationViewController: UIViewController, UITableViewDelegate, UITable
         let bg = UIView()
         bg.backgroundColor = ColorPalette.background
         tableView.backgroundView = bg
+        orgName.text = org.name
 
         // Do any additional setup after loading the view.
     }
@@ -32,17 +39,26 @@ class OrganizationViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cel") as! InterestingCell
+        cell.topLabel.text = org.projects[indexPath.row].name
+        cell.bottomLabel.text = org.projects[indexPath.row].place
         cell.contentView.backgroundColor = ColorPalette.background
         
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! ProyectViewController
+        vc.chosenProyect = org.projects[index]
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         performSegueWithIdentifier("se", sender: nil)
+        index = indexPath.row
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return org.projects.count
     }
 
     /*

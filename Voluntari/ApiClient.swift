@@ -72,7 +72,10 @@ class ApiClient{
             catch{
                 print("error")
             }
-            completionHandler(projectsArray)
+            dispatch_async(dispatch_get_main_queue(), {
+                 completionHandler(projectsArray)
+            })
+           
         }
         task.resume()
     }
@@ -81,11 +84,58 @@ class ApiClient{
         
         let path = Endpoints.OrganizationOfAProject(id).URL()
         let url = NSURL(string: path)
-        
         let org = Organization()
-        
-        org.in
+
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+            do {
+                
+                if(error != nil){
+                    print(error)
+                    
+                    return
+                }
+               
+        let array = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSArray
+
+        let a = array[0]
+                org.initialize(a as! NSDictionary)
         
     }
+            catch{
+                print("waddup dude")
+            }
+            dispatch_async(dispatch_get_main_queue(), {
+                completionHandler(org)
+            })
     
+}
+        task.resume()
+}
+    
+    func fetchProjectsOfOrg(id: Int, completionHandler: [Project] -> Void){
+        let path = Endpoints.ProjectsOfOrganization(id).URL()
+        let url = NSURL(string: path)
+        var projectArray: [Project] = []
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+            do {
+                var array = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSArray
+                var cont = 1
+                
+                for i in 1...array.count-1{
+                    let proy = Project()
+                    proy.initialize(array[i] as! NSDictionary)
+                projectArray.append(proy)
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                   completionHandler(projectArray)
+                })
+                
+            }
+            catch{
+                print("No ahora porfavor")
+            }
+        }
+        task.resume()
+    }
 }

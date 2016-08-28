@@ -60,8 +60,10 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         let vc = segue.destinationViewController as! SelectedCategoryViewController
             vc.selectedCategory = self.selectedCategory
         var chosenProjects: [Project] = []
+        var temp = self.selectedCategory
+        temp = temp?.capitalizedString
         for projects in array {
-            if(projects.category == self.selectedCategory){
+            if(projects.category == self.selectedCategory || projects.category == temp){
                 chosenProjects.append(projects)
             }
         }
