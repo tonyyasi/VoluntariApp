@@ -10,15 +10,21 @@ import UIKit
 
 class ProyectViewController: UIViewController {
     
+
+    @IBAction func buttonclicked(sender: AnyObject) {
+   print(inscribirseButton.currentTitle)
+        if((inscribirseButton.currentTitle)! == "Inscribirse"){
+            inscribirseButton.setTitle("Inscrito", forState: .Normal)
+            inscribirseButton.tintColor = UIColor.redColor()
+        }
+
+    }
     
     @IBAction func clickedOnOrg(sender: AnyObject) {
         performSegueWithIdentifier("segue", sender: nil)
         
     }
     
-    @IBAction func donateButtonPressed(sender: AnyObject) {
-        
-    }
     
     @IBOutlet weak var organizationButton: UIButton!
     

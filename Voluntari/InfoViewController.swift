@@ -11,6 +11,13 @@ import UIKit
 class InfoViewController: UIViewController {
     
     var user = User()
+    
+    
+    @IBAction func linkToWeb(sender: AnyObject) {
+        if let url = NSURL(string: "http://lideresdelmanana.itesm.mx/"){
+        UIApplication.sharedApplication().openURL(url)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
