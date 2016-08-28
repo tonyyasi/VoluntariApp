@@ -16,6 +16,10 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = ColorPalette.background
         self.navigationItem.title = "Info"
+        
+        let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InfoViewController.logOut))
+        
+        navigationItem.rightBarButtonItem = logOutButton
 
         // Do any additional setup after loading the view.
     }
@@ -24,6 +28,16 @@ class InfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func logOut(){
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("first")
+        presentViewController(vc!, animated: false, completion: nil)
+        
+    }
+    
+
     
 
     /*

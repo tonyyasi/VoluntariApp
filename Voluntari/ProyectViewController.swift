@@ -10,9 +10,18 @@ import UIKit
 
 class ProyectViewController: UIViewController {
     
+    
+    @IBAction func clickedOnOrg(sender: AnyObject) {
+        performSegueWithIdentifier("segue", sender: nil)
+        
+    }
+    
     @IBAction func donateButtonPressed(sender: AnyObject) {
         
     }
+    
+    @IBOutlet weak var organizationButton: UIButton!
+    
     @IBOutlet weak var inscribirseButton: UIButton!
     @IBOutlet weak var remainingLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UITextView!

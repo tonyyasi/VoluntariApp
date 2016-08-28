@@ -26,6 +26,10 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         view.backgroundColor = ColorPalette.background
         collectionView.backgroundColor = ColorPalette.background
         self.navigationItem.title = "Categories"
+        
+        let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(CategoriesViewController.logOut))
+        
+        navigationItem.rightBarButtonItem = logOutButton
 
         // Do any additional setup after loading the view.
     }
@@ -34,6 +38,16 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categorias.count
     }
+    
+    func logOut(){
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("first")
+        presentViewController(vc!, animated: false, completion: nil)
+        
+    }
+    
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! SelectedCategoryViewController
