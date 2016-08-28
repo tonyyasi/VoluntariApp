@@ -12,13 +12,54 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var homeTableView: UITableView!
     var user = User()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        let homeButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.logOut))
+
+        navigationItem.rightBarButtonItem = homeButton
+        
         // b9e4f0
         view.backgroundColor = ColorPalette.background
+        homeTableView.delegate = self
+        homeTableView.dataSource = self
+        let bg = UIView()
+        bg.backgroundColor = ColorPalette.background
+        homeTableView.backgroundView = bg
+        
+        if(user.firstName == nil){
+            fetchProfile()
+        }
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    func fetchProfile(){
+        let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).startWithCompletionHandler { (connection, result, error) in
+            if error != nil{
+                print(error)
+                return
+            }
+            
+            
+            self.user.initialize(result)
+            let viewC = self.storyboard?.instantiateViewControllerWithIdentifier("first") as! ViewController
+            viewC.sendUserToViews()
+            
+        }
+    }
+
+    
+    func logOut(){
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("first")
+        presentViewController(vc!, animated: false, completion: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +76,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("proyectos") as! InterestingCell
+        cell.topLabel.text = "top"
+        cell.bottomLabel.text = "bottom"
+        cell.contentView.backgroundColor = ColorPalette.background
         
         return cell
     }

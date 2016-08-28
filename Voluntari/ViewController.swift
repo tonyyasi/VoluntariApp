@@ -48,8 +48,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        if(!(result.isCancelled)){
         fetchProfile()
         nextView()
+        }
+        
+        
         
     }
     
@@ -62,7 +66,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func nextView(){
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("nav")
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("tab")
         presentViewController(vc!, animated: true, completion: nil)
     }
     

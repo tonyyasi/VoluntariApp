@@ -10,4 +10,8 @@ import Foundation
 
 class InterestingCell: UITableViewCell {
     
+    @IBOutlet weak var topLabel: UILabel!
+    
+    @IBOutlet weak var bottomLabel: UILabel!
+    
 }
