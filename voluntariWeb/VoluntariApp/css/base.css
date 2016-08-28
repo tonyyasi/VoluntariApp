@@ -1,0 +1,80 @@
+/* CSS declarations go here */
+.navbar .navbar-brand{
+  font-size: 1rem;
+  padding-top: .45rem;
+}
+
+a li{
+	color: black;
+}
+
+a{
+	color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+
+@media(max-width: 455px){
+
+	.navbar ul{
+		margin-top: 1rem;
+		padding-right: 4rem;
+	}
+
+	.navbar-brand{
+		margin-left: 7rem;
+	}
+
+	.jumbotron{
+		margin-top: 4rem;
+		margin-bottom: 1rem;
+	}
+
+	.titulo{
+		font-size: 3rem;
+	}
+
+	.tit{
+		font-size: 1.5rem;
+	}
+
+	.inf{
+		font-size: 1rem;
+		margin-top: 0.4rem;
+	}
+
+	.texto{
+		font-size: 1.3rem;
+	}
+
+	.but{
+		font-size: 1rem;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
