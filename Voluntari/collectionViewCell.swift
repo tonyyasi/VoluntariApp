@@ -10,6 +10,8 @@ import Foundation
 
 class collectionViewCell: UICollectionViewCell{
     
+    @IBOutlet weak var categoryTitle: UILabel!
+    
     @IBOutlet weak var cellImage: UIImageView!
     
 }

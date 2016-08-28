@@ -20,6 +20,7 @@
 		AF75ED4E1D72A6D00047BEA7 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED4D1D72A6D00047BEA7 /* Project.swift */; };
 		AF75ED501D72A7DE0047BEA7 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED4F1D72A7DE0047BEA7 /* Organization.swift */; };
 		AF75ED561D72B2380047BEA7 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED551D72B2380047BEA7 /* ApiClient.swift */; };
+		AF75ED581D72BD6C0047BEA7 /* SelectedCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED571D72BD6C0047BEA7 /* SelectedCategoryViewController.swift */; };
 		AFED62A31D720A7D0047FFE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */; };
 		AFED62A51D720A7D0047FFE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A41D720A7D0047FFE5 /* ViewController.swift */; };
 		AFED62A81D720A7D0047FFE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFED62A61D720A7D0047FFE5 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		AF75ED4D1D72A6D00047BEA7 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		AF75ED4F1D72A7DE0047BEA7 /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		AF75ED551D72B2380047BEA7 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		AF75ED571D72BD6C0047BEA7 /* SelectedCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCategoryViewController.swift; sourceTree = "<group>"; };
 		AFED629F1D720A7D0047FFE5 /* Voluntari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voluntari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFED62A41D720A7D0047FFE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				AF75ED4B1D7291DC0047BEA7 /* ProyectViewController.swift */,
 				AF6552AD1D723AA600106217 /* CategoriesViewController.swift */,
 				AF6552AF1D723AB000106217 /* InfoViewController.swift */,
+				AF75ED571D72BD6C0047BEA7 /* SelectedCategoryViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			files = (
 				AF6552B61D72473600106217 /* InterestingCell.swift in Sources */,
 				AF6552AA1D7234B100106217 /* FacebookUser.swift in Sources */,
+				AF75ED581D72BD6C0047BEA7 /* SelectedCategoryViewController.swift in Sources */,
 				AF75ED501D72A7DE0047BEA7 /* Organization.swift in Sources */,
 				AF75ED4C1D7291DC0047BEA7 /* ProyectViewController.swift in Sources */,
 				AF6552B21D72445F00106217 /* UIColorExtension.swift in Sources */,

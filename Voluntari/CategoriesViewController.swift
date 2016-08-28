@@ -10,6 +10,9 @@ import UIKit
 
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
+    let categorias = ["Reforestación", "Campamentos", "Programación" , "Educación", "Medicina", "Alimentación"]
+    var selectedCategory: String?
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     let imageArray = [UIImage(named: "arboles"), UIImage(named: "3"), UIImage(named: "programa"), UIImage(named:"school")]
@@ -29,12 +32,23 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
 
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 4 //categorias.count
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! SelectedCategoryViewController
+            vc.selectedCategory = self.selectedCategory
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print(indexPath.row)
-        //performSegueWithIdentifier(<#T##identifier: String##String#>, sender: <#T##AnyObject?#>)
+        if let cat = categorias[indexPath.row] as? String{
+            self.selectedCategory = cat
+        }
+        
+        print(self.selectedCategory)
+        
+        performSegueWithIdentifier("category", sender: nil)
         
     }
     
@@ -42,6 +56,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ccell", forIndexPath: indexPath) as! collectionViewCell
         cell.contentView.backgroundColor = ColorPalette.background
         cell.cellImage.image = imageArray[indexPath.row]
+        cell.categoryTitle.text = categorias[indexPath.row]
+        
         return cell
     }
     

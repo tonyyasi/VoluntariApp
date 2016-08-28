@@ -79,6 +79,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <outlet property="categoryTitle" destination="CEG-Cw-5CD" id="nmT-lL-w2M"/>
                                             <outlet property="cellImage" destination="0XG-NV-Wq3" id="iaG-Cv-bX9"/>
                                         </connections>
                                     </collectionViewCell>
@@ -104,11 +105,30 @@
                     <navigationItem key="navigationItem" id="ADv-Mr-wRd"/>
                     <connections>
                         <outlet property="collectionView" destination="k0a-t9-rzj" id="KVJ-qU-daY"/>
+                        <segue destination="ykL-mL-SwQ" kind="show" identifier="category" id="hOH-dq-hDK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sv-kf-pqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3192" y="700"/>
+        </scene>
+        <!--Selected Category View Controller-->
+        <scene sceneID="RRq-Et-6FE">
+            <objects>
+                <viewController storyboardIdentifier="selected" id="ykL-mL-SwQ" customClass="SelectedCategoryViewController" customModule="Voluntari" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ui3-PH-Jqu"/>
+                        <viewControllerLayoutGuide type="bottom" id="q14-2t-fes"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mOG-6J-heH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P3W-uz-jL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3901" y="700"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="yVM-1M-9C8">
