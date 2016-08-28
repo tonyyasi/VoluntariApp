@@ -27,6 +27,11 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionView.backgroundColor = ColorPalette.background
         self.navigationItem.title = "Categories"
         
+        ApiClient.sharedApiClient.fetchProjects { (projectArray) in
+            
+            print("a")
+        }
+        
         let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(CategoriesViewController.logOut))
         
         navigationItem.rightBarButtonItem = logOutButton
