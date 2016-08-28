@@ -10,4 +10,27 @@ import Foundation
 
 class Project {
     
+    var name: String?
+    var capacity: Int!
+    var description: String!
+    var category: String!
+    var date: String!
+    var freeSpaces: Int!
+    var moneyDonated: Double!
+    var place: String!
+    
+    
 }
+
+/*
+ name
+ capacity
+ description
+ categories
+ date
+ free_spaces
+ money_donated
+ place
+
+ 
+ */
