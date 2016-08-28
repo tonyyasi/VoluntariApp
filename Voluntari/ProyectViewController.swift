@@ -21,7 +21,7 @@ class ProyectViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var placeLabel: UILabel!
-    // let chosenProyect = nil
+    let chosenProyect = Project()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,9 +17,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        let homeButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.logOut))
+        let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.logOut))
 
-        navigationItem.rightBarButtonItem = homeButton
+        navigationItem.rightBarButtonItem = logOutButton
         
         // b9e4f0
         view.backgroundColor = ColorPalette.background

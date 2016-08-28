@@ -30,6 +30,10 @@ class SelectedCategoryViewController: UIViewController, UITableViewDelegate, UIT
 
         // Do any additional setup after loading the view.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
