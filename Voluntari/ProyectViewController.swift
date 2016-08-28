@@ -1,5 +1,5 @@
 //
-//  InfoViewController.swift
+//  ProyectViewController.swift
 //  Voluntari
 //
 //  Created by Tony Toussaint on 8/27/16.
@@ -8,9 +8,20 @@
 
 import UIKit
 
-class InfoViewController: UIViewController {
+class ProyectViewController: UIViewController {
     
-    var user = User()
+    @IBAction func donateButtonPressed(sender: AnyObject) {
+        
+    }
+    @IBOutlet weak var inscribirseButton: UIButton!
+    @IBOutlet weak var remainingLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UITextView!
+    @IBOutlet weak var projectTitleLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var placeLabel: UILabel!
+    // let chosenProyect = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()

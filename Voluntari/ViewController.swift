@@ -17,7 +17,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }()
     
     override func viewDidAppear(animated: Bool) {
-        if let token = FBSDKAccessToken.currentAccessToken() {
+        let token = FBSDKAccessToken.currentAccessToken()
+        if  FBSDKAccessToken.currentAccessToken() != nil {
             fetchProfile()
             self.nextView()
         }
@@ -29,6 +30,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         view.addSubview(FBButton)
         FBButton.delegate = self
         FBButton.center = view.center
+        view.backgroundColor = ColorPalette.background
         
         // Do any additional setup after loading the view, typically from a nib.
     }

@@ -26,10 +26,6 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
@@ -37,6 +33,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print(indexPath.row)
+        //performSegueWithIdentifier(<#T##identifier: String##String#>, sender: <#T##AnyObject?#>)
         
     }
     

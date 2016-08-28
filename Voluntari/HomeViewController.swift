@@ -71,7 +71,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 10
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+       
+    }
+    
+    
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+         performSegueWithIdentifier("choseProyect", sender: nil)
         
     }
     
