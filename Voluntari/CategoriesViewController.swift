@@ -22,6 +22,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionView.dataSource = self
         view.backgroundColor = ColorPalette.background
         collectionView.backgroundColor = ColorPalette.background
+        self.navigationItem.title = "Categories"
 
         // Do any additional setup after loading the view.
     }

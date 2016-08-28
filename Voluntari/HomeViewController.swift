@@ -28,6 +28,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let bg = UIView()
         bg.backgroundColor = ColorPalette.background
         homeTableView.backgroundView = bg
+        self.navigationItem.title = "Home"
         
         if(user.firstName == nil){
             fetchProfile()
@@ -79,7 +80,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
          performSegueWithIdentifier("choseProyect", sender: nil)
         
     }

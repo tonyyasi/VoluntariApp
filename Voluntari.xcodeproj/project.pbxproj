@@ -18,6 +18,7 @@
 		AF75ED4A1D7264F60047BEA7 /* collectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED491D7264F60047BEA7 /* collectionViewCell.swift */; };
 		AF75ED4C1D7291DC0047BEA7 /* ProyectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED4B1D7291DC0047BEA7 /* ProyectViewController.swift */; };
 		AF75ED4E1D72A6D00047BEA7 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED4D1D72A6D00047BEA7 /* Project.swift */; };
+		AF75ED501D72A7DE0047BEA7 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF75ED4F1D72A7DE0047BEA7 /* Organization.swift */; };
 		AFED62A31D720A7D0047FFE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */; };
 		AFED62A51D720A7D0047FFE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED62A41D720A7D0047FFE5 /* ViewController.swift */; };
 		AFED62A81D720A7D0047FFE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFED62A61D720A7D0047FFE5 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		AF75ED491D7264F60047BEA7 /* collectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionViewCell.swift; sourceTree = "<group>"; };
 		AF75ED4B1D7291DC0047BEA7 /* ProyectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProyectViewController.swift; sourceTree = "<group>"; };
 		AF75ED4D1D72A6D00047BEA7 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		AF75ED4F1D72A7DE0047BEA7 /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		AFED629F1D720A7D0047FFE5 /* Voluntari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voluntari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFED62A21D720A7D0047FFE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFED62A41D720A7D0047FFE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				AF6552B51D72473600106217 /* InterestingCell.swift */,
 				AF75ED491D7264F60047BEA7 /* collectionViewCell.swift */,
 				AF75ED4D1D72A6D00047BEA7 /* Project.swift */,
+				AF75ED4F1D72A7DE0047BEA7 /* Organization.swift */,
 			);
 			path = Voluntari;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				AF6552B61D72473600106217 /* InterestingCell.swift in Sources */,
 				AF6552AA1D7234B100106217 /* FacebookUser.swift in Sources */,
+				AF75ED501D72A7DE0047BEA7 /* Organization.swift in Sources */,
 				AF75ED4C1D7291DC0047BEA7 /* ProyectViewController.swift in Sources */,
 				AF6552B21D72445F00106217 /* UIColorExtension.swift in Sources */,
 				AFED62A51D720A7D0047FFE5 /* ViewController.swift in Sources */,
