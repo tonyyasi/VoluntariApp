@@ -157,6 +157,10 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="N1L-gZ-1jM" secondAttribute="bottom" constant="5" id="oS4-zb-cHN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bottomLabel" destination="F9n-Bw-r2d" id="cXY-ad-XCV"/>
+                                            <outlet property="topLabel" destination="vBh-FX-DJC" id="M9q-vL-c07"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -489,6 +493,10 @@
                                                 <constraint firstItem="Vmy-XJ-CO3" firstAttribute="top" secondItem="htT-kt-Qs4" secondAttribute="topMargin" id="w97-cN-uCQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bottomLabel" destination="sFg-lI-h0a" id="JWA-9E-fMe"/>
+                                            <outlet property="topLabel" destination="7eE-fp-OAu" id="gAx-rg-SUn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

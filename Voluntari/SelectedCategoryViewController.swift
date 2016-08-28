@@ -11,6 +11,7 @@ import UIKit
 class SelectedCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var selectedCategory: String?
+    var chosen:[Project] = []
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -41,7 +42,7 @@ class SelectedCategoryViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return chosen.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -52,7 +53,8 @@ class SelectedCategoryViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("proyectos") as! InterestingCell
-        
+        cell.topLabel.text = chosen[indexPath.row].name
+        cell.bottomLabel.text = chosen[indexPath.row].place
 
         cell.contentView.backgroundColor = ColorPalette.background
         return cell

@@ -13,6 +13,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     let categorias = ["Reforestación", "Campamentos", "Programación" , "Educación", "Medicina", "Alimentación"]
     var selectedCategory: String?
     
+    var array: [Project] = []
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     let imageArray = [UIImage(named: "arboles"), UIImage(named: "3"), UIImage(named: "programa"), UIImage(named:"school"), UIImage(named: "medi") , UIImage(named: "comida")]
@@ -28,7 +30,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         self.navigationItem.title = "Categories"
         
         ApiClient.sharedApiClient.fetchProjects { (projectArray) in
-            
+            self.array = projectArray
             print("a")
         }
         
@@ -57,6 +59,14 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! SelectedCategoryViewController
             vc.selectedCategory = self.selectedCategory
+        var chosenProjects: [Project] = []
+        for projects in array {
+            if(projects.category == self.selectedCategory){
+                chosenProjects.append(projects)
+            }
+        }
+        vc.chosen = chosenProjects
+        
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
