@@ -15,7 +15,7 @@ class User {
     var email: String!
     var picture: String!
     
-    func initialize(dictionary: AnyObject){
+    func initialize(_ dictionary: AnyObject){
         firstName = dictionary["first_name"] as! String
         lastName = dictionary["last_name"] as! String
         email = dictionary["email"] as! String

@@ -9,6 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
+    /*!
+     @abstract Sent to the delegate when the button was used to login.
+     @param loginButton the sender
+     @param result The results of the login
+     @param error The error (if any) from the login
+     */
+    public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
+            fetchProfile()
+            nextView()
+        
+        
+    }
+
     let user = User()
     let FBButton: FBSDKLoginButton = {
        let button = FBSDKLoginButton()
@@ -16,9 +31,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         return button
     }()
     
-    override func viewDidAppear(animated: Bool) {
-        let token = FBSDKAccessToken.currentAccessToken()
-        if  FBSDKAccessToken.currentAccessToken() != nil {
+  
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let token = FBSDKAccessToken.current()
+        if  token != nil {
             fetchProfile()
             self.nextView()
         }
@@ -30,52 +48,52 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         view.addSubview(FBButton)
         FBButton.delegate = self
         FBButton.center = view.center
-        view.backgroundColor = ColorPalette.background
+        view.backgroundColor = .white
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     func fetchProfile(){
         let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
-        FBSDKGraphRequest(graphPath: "me", parameters: parameters).startWithCompletionHandler { (connection, result, error) in
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection, result, error) in
             if error != nil{
                 print(error)
                 return
             }
             
           
-            self.user.initialize(result)
+            self.user.initialize(result as AnyObject)
             self.sendUserToViews()
         }
     }
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        if(!(result.isCancelled)){
-        fetchProfile()
-        nextView()
-        }
-        
-        
+//    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+//        if(!(result.isCancelled)){
+//        fetchProfile()
+//        nextView()
+//        }
+//        
+//        
+//        
+//    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         
     }
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        
-    }
-    
-    func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
+    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
         return true
     }
     
     func nextView(){
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("tab")
-        presentViewController(vc!, animated: true, completion: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "tab")
+        present(vc!, animated: true, completion: nil)
     }
     
     func sendUserToViews(){
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("info") as! InfoViewController
-        let vc2 = storyboard?.instantiateViewControllerWithIdentifier("home") as! HomeViewController
-        let vc3 = storyboard?.instantiateViewControllerWithIdentifier("categories") as! CategoriesViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "info") as! InfoViewController
+        let vc2 = storyboard?.instantiateViewController(withIdentifier: "home") as! HomeViewController
+        let vc3 = storyboard?.instantiateViewController(withIdentifier: "categories") as! CategoriesViewController
         
         vc.user = self.user
         vc2.user = self.user

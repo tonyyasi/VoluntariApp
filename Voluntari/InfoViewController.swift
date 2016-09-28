@@ -13,18 +13,18 @@ class InfoViewController: UIViewController {
     var user = User()
     
     
-    @IBAction func linkToWeb(sender: AnyObject) {
-        if let url = NSURL(string: "http://lideresdelmanana.itesm.mx/"){
-        UIApplication.sharedApplication().openURL(url)
+    @IBAction func linkToWeb(_ sender: AnyObject) {
+        if let url = URL(string: "http://lideresdelmanana.itesm.mx/"){
+        UIApplication.shared.openURL(url)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = ColorPalette.background
+        view.backgroundColor = .white
         self.navigationItem.title = "Info"
         
-        let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InfoViewController.logOut))
+        let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(InfoViewController.logOut))
         
         navigationItem.rightBarButtonItem = logOutButton
 
@@ -39,8 +39,8 @@ class InfoViewController: UIViewController {
     func logOut(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("first")
-        presentViewController(vc!, animated: false, completion: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "first")
+        present(vc!, animated: false, completion: nil)
         
     }
     

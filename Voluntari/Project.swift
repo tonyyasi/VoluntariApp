@@ -20,7 +20,7 @@ class Project {
     var place: String!
     var id: Int!
     
-    func initialize(dictionary: NSDictionary){
+    func initialize(_ dictionary: NSDictionary){
         name = dictionary["name"] as! String
         capacity = dictionary["capacity"] as! Int
         description = dictionary["description"] as! String

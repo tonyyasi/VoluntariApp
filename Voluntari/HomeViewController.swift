@@ -24,16 +24,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.homeTableView.reloadData()
         }
       
-        let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.logOut))
+        let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeViewController.logOut))
 
         navigationItem.rightBarButtonItem = logOutButton
         
         // b9e4f0
-        view.backgroundColor = ColorPalette.background
+        view.backgroundColor = .white
         homeTableView.delegate = self
         homeTableView.dataSource = self
         let bg = UIView()
-        bg.backgroundColor = ColorPalette.background
+        bg.backgroundColor = .white
         homeTableView.backgroundView = bg
         self.navigationItem.title = "Home"
         
@@ -47,15 +47,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func fetchProfile(){
         let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
-        FBSDKGraphRequest(graphPath: "me", parameters: parameters).startWithCompletionHandler { (connection, result, error) in
+        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection, result, error) in
             if error != nil{
                 print(error)
                 return
             }
             
             
-            self.user.initialize(result)
-            let viewC = self.storyboard?.instantiateViewControllerWithIdentifier("first") as! ViewController
+            self.user.initialize(result as AnyObject)
+            let viewC = self.storyboard?.instantiateViewController(withIdentifier: "first") as! ViewController
             viewC.sendUserToViews()
             
         }
@@ -65,8 +65,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func logOut(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("first")
-        presentViewController(vc!, animated: false, completion: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "first")
+        present(vc!, animated: false, completion: nil)
         
     }
 
@@ -75,31 +75,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return projects.count
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! ProyectViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ProyectViewController
         vc.chosenProyect = self.projects[index]
        
     }
     
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        self.index = indexPath.row
-         performSegueWithIdentifier("choseProyect", sender: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.index = (indexPath as NSIndexPath).row
+         performSegue(withIdentifier: "choseProyect", sender: nil)
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("proyectos") as! InterestingCell
-        cell.topLabel.text = projects[indexPath.row].name
-        cell.bottomLabel.text = projects[indexPath.row].place
-        cell.contentView.backgroundColor = ColorPalette.background
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "proyectos") as! InterestingCell
+        cell.topLabel.text = projects[(indexPath as NSIndexPath).row].name
+        cell.bottomLabel.text = projects[(indexPath as NSIndexPath).row].place
+        cell.contentView.backgroundColor = .white
         return cell
     }
     

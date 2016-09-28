@@ -9,46 +9,46 @@
 import Foundation
 
 enum Endpoints {
-    case Organization()
-    case ProjectsOfOrganization(Int)
-    case Projects()
-    case EspecificProject(Int)
-    case OrganizationOfAProject(Int)
+    case organization()
+    case projectsOfOrganization(Int)
+    case projects()
+    case especificProject(Int)
+    case organizationOfAProject(Int)
     
     func URL()->String{
         let path:String!
         
         switch self {
-        case .Organization(let id):
+        case .organization(let id):
             path = "organizations/\(id)"
-        case .ProjectsOfOrganization(let number):
+        case .projectsOfOrganization(let number):
             path = "organizations/\(number)"
-        case .Projects():
+        case .projects():
             path = "projects"
-        case .EspecificProject(let id):
+        case .especificProject(let id):
             path = "projects/\(id)"
-        case .OrganizationOfAProject(let id):
+        case .organizationOfAProject(let id):
             path = "projects/\(id)"
         }
         return ApiClient.baseURL + path
     }
 }
 
-typealias ProjectsCompletionHandler = [Project] -> Void
-typealias OrganizationCompletionHandler = Organization -> Void
+typealias ProjectsCompletionHandler = ([Project]) -> Void
+typealias OrganizationCompletionHandler = (Organization) -> Void
 
 class ApiClient{
     
     static let sharedApiClient = ApiClient()
     static let baseURL = "https://nameless-forest-54224.herokuapp.com/api/v1/"
     
-    func fetchProjects(completionHandler: ProjectsCompletionHandler){
-        let path = Endpoints.Projects().URL()
-        let url = NSURL(string: path)
+    func fetchProjects(_ completionHandler: @escaping ProjectsCompletionHandler){
+        let path = Endpoints.projects().URL()
+        let url = URL(string: path)
         
         var projectsArray: [Project] = []
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             
             do {
             
@@ -60,7 +60,7 @@ class ApiClient{
             
             
             
-            let array = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSArray
+            let array = try JSONSerialization.jsonObject(with: data!, options: []) as! NSArray
                 
                 for projs in array  {
                     let proy = Project()
@@ -72,21 +72,21 @@ class ApiClient{
             catch{
                 print("error")
             }
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                  completionHandler(projectsArray)
             })
            
-        }
+        }) 
         task.resume()
     }
     
-    func fetchOrganization(let id: Int, completionHandler: OrganizationCompletionHandler){
+    func fetchOrganization(_ id: Int, completionHandler: @escaping OrganizationCompletionHandler){
         
-        let path = Endpoints.OrganizationOfAProject(id).URL()
-        let url = NSURL(string: path)
+        let path = Endpoints.organizationOfAProject(id).URL()
+        let url = URL(string: path)
         let org = Organization()
 
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             do {
                 
                 if(error != nil){
@@ -95,7 +95,7 @@ class ApiClient{
                     return
                 }
                
-        let array = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSArray
+        let array = try JSONSerialization.jsonObject(with: data!, options: []) as! NSArray
 
         let a = array[0]
                 org.initialize(a as! NSDictionary)
@@ -104,21 +104,21 @@ class ApiClient{
             catch{
                 print("waddup dude")
             }
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 completionHandler(org)
             })
     
-}
+}) 
         task.resume()
 }
     
-    func fetchProjectsOfOrg(id: Int, completionHandler: [Project] -> Void){
-        let path = Endpoints.ProjectsOfOrganization(id).URL()
-        let url = NSURL(string: path)
+    func fetchProjectsOfOrg(_ id: Int, completionHandler: @escaping ([Project]) -> Void){
+        let path = Endpoints.projectsOfOrganization(id).URL()
+        let url = URL(string: path)
         var projectArray: [Project] = []
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             do {
-                var array = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSArray
+                var array = try JSONSerialization.jsonObject(with: data!, options: []) as! NSArray
                 var cont = 1
                 
                 for i in 1...array.count-1{
@@ -127,7 +127,7 @@ class ApiClient{
                 projectArray.append(proy)
                 }
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                    completionHandler(projectArray)
                 })
                 
@@ -135,7 +135,7 @@ class ApiClient{
             catch{
                 print("No ahora porfavor")
             }
-        }
+        }) 
         task.resume()
     }
 }

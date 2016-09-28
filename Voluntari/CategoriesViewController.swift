@@ -25,16 +25,16 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        view.backgroundColor = ColorPalette.background
-        collectionView.backgroundColor = ColorPalette.background
+        view.backgroundColor = .white
+        collectionView.backgroundColor = .white
         self.navigationItem.title = "Categories"
-        
+                
         ApiClient.sharedApiClient.fetchProjects { (projectArray) in
             self.array = projectArray
             print("a")
         }
         
-        let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(CategoriesViewController.logOut))
+        let logOutButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CategoriesViewController.logOut))
         
         navigationItem.rightBarButtonItem = logOutButton
 
@@ -42,26 +42,26 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     }
 
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categorias.count
     }
     
     func logOut(){
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("first")
-        presentViewController(vc!, animated: false, completion: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "first")
+        present(vc!, animated: false, completion: nil)
         
     }
     
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! SelectedCategoryViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SelectedCategoryViewController
             vc.selectedCategory = self.selectedCategory
         var chosenProjects: [Project] = []
         var temp = self.selectedCategory
-        temp = temp?.capitalizedString
+        temp = temp?.capitalized
         for projects in array {
             if(projects.category == self.selectedCategory || projects.category == temp){
                 chosenProjects.append(projects)
@@ -71,21 +71,21 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
-        if let cat = categorias[indexPath.row] as? String{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print((indexPath as NSIndexPath).row)
+        if let cat = categorias[(indexPath as NSIndexPath).row] as? String{
             self.selectedCategory = cat
         }
         
-        performSegueWithIdentifier("category", sender: nil)
+        performSegue(withIdentifier: "category", sender: nil)
         
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ccell", forIndexPath: indexPath) as! collectionViewCell
-        cell.contentView.backgroundColor = ColorPalette.background
-        cell.cellImage.image = imageArray[indexPath.row]
-        cell.categoryTitle.text = categorias[indexPath.row]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ccell", for: indexPath) as! collectionViewCell
+        cell.contentView.backgroundColor = .white
+        cell.cellImage.image = imageArray[(indexPath as NSIndexPath).row]
+        cell.categoryTitle.text = categorias[(indexPath as NSIndexPath).row]
         
         return cell
     }

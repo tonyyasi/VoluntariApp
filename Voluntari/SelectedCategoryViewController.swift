@@ -24,17 +24,17 @@ class SelectedCategoryViewController: UIViewController, UITableViewDelegate, UIT
         navigationItem.title = selectedCategory
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor.clear
         let bg = UIView()
-        bg.backgroundColor = ColorPalette.background
+        bg.backgroundColor = .white
         tableView.backgroundView = bg
 
 
         // Do any additional setup after loading the view.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! ProyectViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ProyectViewController
             vc.chosenProyect = self.chosenOne
     }
 
@@ -43,21 +43,21 @@ class SelectedCategoryViewController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chosen.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        self.chosenOne = chosen[indexPath.row]
-        performSegueWithIdentifier("catToProy", sender: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.chosenOne = chosen[(indexPath as NSIndexPath).row]
+        performSegue(withIdentifier: "catToProy", sender: nil)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("proyectos") as! InterestingCell
-        cell.topLabel.text = chosen[indexPath.row].name
-        cell.bottomLabel.text = chosen[indexPath.row].place
+        let cell = tableView.dequeueReusableCell(withIdentifier: "proyectos") as! InterestingCell
+        cell.topLabel.text = chosen[(indexPath as NSIndexPath).row].name
+        cell.bottomLabel.text = chosen[(indexPath as NSIndexPath).row].place
 
         cell.contentView.backgroundColor = ColorPalette.background
         return cell

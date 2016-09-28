@@ -11,17 +11,20 @@ import UIKit
 class ProyectViewController: UIViewController {
     
 
-    @IBAction func buttonclicked(sender: AnyObject) {
+    @IBAction func buttonclicked(_ sender: AnyObject) {
    print(inscribirseButton.currentTitle)
         if((inscribirseButton.currentTitle)! == "Inscribirse"){
-            inscribirseButton.setTitle("Inscrito", forState: .Normal)
-            inscribirseButton.tintColor = UIColor.redColor()
+            inscribirseButton.setTitle("Inscrito", for: UIControlState())
+            inscribirseButton.tintColor = UIColor.red
+            chosenProyect?.freeSpaces = (chosenProyect?.freeSpaces)! - 1
+            remainingLabel.text = " Solo quedan \(chosenProyect!.freeSpaces) lugares"
+
         }
 
     }
     
-    @IBAction func clickedOnOrg(sender: AnyObject) {
-        performSegueWithIdentifier("segue", sender: nil)
+    @IBAction func clickedOnOrg(_ sender: AnyObject) {
+        performSegue(withIdentifier: "segue", sender: nil)
         
     }
     
@@ -39,8 +42,8 @@ class ProyectViewController: UIViewController {
     var chosenProyect: Project?
     var organization: Organization?
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! OrganizationViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! OrganizationViewController
         vc.chosenProj = self.chosenProyect!
         vc.org = self.organization!
     }
@@ -59,7 +62,7 @@ class ProyectViewController: UIViewController {
         }
         
                super.viewDidLoad()
-        view.backgroundColor = ColorPalette.background
+        view.backgroundColor = .white
         remainingLabel.text = " Solo quedan \(chosenProyect!.freeSpaces) lugares"
         descriptionLabel.text = chosenProyect!.description
         projectTitleLabel.text = chosenProyect!.name

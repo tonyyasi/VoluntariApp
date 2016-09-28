@@ -18,7 +18,7 @@ class Organization {
     var created_at: String!
     var updated_at: String!
     
-        func initialize(dictionary: NSDictionary){
+        func initialize(_ dictionary: NSDictionary){
             id = dictionary["id"] as! Int
             name = dictionary["name"] as! String
             description = dictionary["description"] as! String

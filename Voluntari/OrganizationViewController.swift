@@ -26,12 +26,12 @@ class OrganizationViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = ColorPalette.background
+        view.backgroundColor = .white
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = ColorPalette.background
+        tableView.backgroundColor = .white
         let bg = UIView()
-        bg.backgroundColor = ColorPalette.background
+        bg.backgroundColor = .white
         tableView.backgroundView = bg
         orgName.text = org.name
         descriptionLabel.text = "Description: \(org.description)"
@@ -44,27 +44,27 @@ class OrganizationViewController: UIViewController, UITableViewDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cel") as! InterestingCell
-        cell.topLabel.text = org.projects[indexPath.row].name
-        cell.bottomLabel.text = org.projects[indexPath.row].place
-        cell.contentView.backgroundColor = ColorPalette.background
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cel") as! InterestingCell
+        cell.topLabel.text = org.projects[(indexPath as NSIndexPath).row].name
+        cell.bottomLabel.text = org.projects[(indexPath as NSIndexPath).row].place
+        cell.contentView.backgroundColor = .white
         
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! ProyectViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ProyectViewController
         vc.chosenProyect = org.projects[index]
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        performSegueWithIdentifier("se", sender: nil)
-        index = indexPath.row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "se", sender: nil)
+        index = (indexPath as NSIndexPath).row
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return org.projects.count
     }
 
