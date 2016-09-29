@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let bg = UIView()
         bg.backgroundColor = .white
         homeTableView.backgroundView = bg
-        self.navigationItem.title = "Home"
+        self.navigationItem.title = "Inicio"
         
         if(user.firstName == nil){
             fetchProfile()

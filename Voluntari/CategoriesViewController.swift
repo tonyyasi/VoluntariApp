@@ -27,7 +27,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionView.dataSource = self
         view.backgroundColor = .white
         collectionView.backgroundColor = .white
-        self.navigationItem.title = "Categories"
+        self.navigationItem.title = "Categorías"
                 
         ApiClient.sharedApiClient.fetchProjects { (projectArray) in
             self.array = projectArray

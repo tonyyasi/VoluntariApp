@@ -34,7 +34,7 @@ class OrganizationViewController: UIViewController, UITableViewDelegate, UITable
         bg.backgroundColor = .white
         tableView.backgroundView = bg
         orgName.text = org.name
-        descriptionLabel.text = "Description: \(org.description)"
+        descriptionLabel.text = "Description: \((org.description)!)"
 
         // Do any additional setup after loading the view.
     }
